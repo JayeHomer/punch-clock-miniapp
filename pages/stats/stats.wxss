@@ -1,0 +1,142 @@
+.container {
+  padding: 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #f5f5f5;
+}
+
+/* 周/月切换 */
+.tab-bar {
+  display: flex;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 30rpx;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.tab-item.active {
+  background: #4A90D9;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* 周期导航 */
+.period-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+
+.nav-arrow {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #4A90D9;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+}
+
+.nav-arrow.disabled {
+  color: #ccc;
+  background: #f5f5f5;
+}
+
+.period-title {
+  margin: 0 30rpx;
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 汇总卡片 */
+.summary-card {
+  display: flex;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx 20rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.summary-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summary-num {
+  font-size: 36rpx;
+  color: #4A90D9;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.summary-label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 每日明细 */
+.detail-section {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.section-title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 10rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-date {
+  font-size: 28rpx;
+  color: #333;
+  width: 200rpx;
+}
+
+.detail-weekday {
+  font-size: 26rpx;
+  color: #999;
+  flex: 1;
+}
+
+.detail-duration {
+  font-size: 28rpx;
+  color: #4A90D9;
+  font-weight: 500;
+}
+
+.detail-duration.empty {
+  color: #ccc;
+}

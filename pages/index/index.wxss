@@ -1,0 +1,169 @@
+.container {
+  padding: 40rpx 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 日期切换 */
+.date-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60rpx;
+}
+
+.date-arrow {
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #4A90D9;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+}
+
+.date-arrow.disabled {
+  color: #ccc;
+  background: #f5f5f5;
+}
+
+.date-arrow:active {
+  opacity: 0.7;
+}
+
+.date-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 40rpx;
+}
+
+.date-text {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.date-hint {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+/* 打卡按钮 */
+.btn-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60rpx;
+}
+
+.clock-btn {
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4A90D9, #357ABD);
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 30rpx rgba(74, 144, 217, 0.4);
+  border: none;
+  line-height: 300rpx;
+}
+
+.clock-btn::after {
+  border: none;
+}
+
+.clock-btn:active {
+  opacity: 0.85;
+  transform: scale(0.96);
+}
+
+/* 统计卡片 */
+.stats-section {
+  margin-bottom: 40rpx;
+}
+
+.stats-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx 40rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.stats-row:last-child {
+  border-bottom: none;
+}
+
+.stats-label {
+  font-size: 30rpx;
+  color: #666;
+}
+
+.stats-value {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.highlight .stats-label,
+.highlight .stats-value {
+  color: #4A90D9;
+  font-weight: bold;
+  font-size: 34rpx;
+}
+
+/* 无记录 */
+.empty-section {
+  text-align: center;
+  padding: 80rpx 0;
+}
+
+.empty-text {
+  font-size: 30rpx;
+  color: #bbb;
+}
+
+/* 打卡记录列表 */
+.records-section {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx 40rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.section-title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.record-item {
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-time {
+  font-size: 28rpx;
+  color: #666;
+}

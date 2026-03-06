@@ -1,0 +1,48 @@
+<view class="container">
+  <!-- 日期切换 -->
+  <view class="date-section">
+    <view class="date-arrow" bindtap="onPrevDay">◀</view>
+    <view class="date-center" bindtap="onPickDate">
+      <text class="date-text">{{currentDate}}</text>
+      <text class="date-hint" wx:if="{{isToday}}">今天</text>
+      <text class="date-hint" wx:elif="{{isYesterday}}">昨天</text>
+    </view>
+    <view class="date-arrow {{isToday ? 'disabled' : ''}}" bindtap="onNextDay">▶</view>
+  </view>
+
+  <!-- 打卡按钮（仅今天显示） -->
+  <view class="btn-section" wx:if="{{isToday}}">
+    <button class="clock-btn" bindtap="onClockIn">打卡</button>
+  </view>
+
+  <!-- 统计 -->
+  <view class="stats-section" wx:if="{{records.length > 0}}">
+    <view class="stats-card">
+      <view class="stats-row">
+        <text class="stats-label">最早打卡</text>
+        <text class="stats-value">{{firstTime}}</text>
+      </view>
+      <view class="stats-row">
+        <text class="stats-label">最晚打卡</text>
+        <text class="stats-value">{{lastTime}}</text>
+      </view>
+      <view class="stats-row highlight">
+        <text class="stats-label">时长</text>
+        <text class="stats-value">{{duration}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 无记录提示 -->
+  <view class="empty-section" wx:if="{{records.length === 0}}">
+    <text class="empty-text">当天无打卡记录</text>
+  </view>
+
+  <!-- 打卡记录 -->
+  <view class="records-section" wx:if="{{records.length > 0}}">
+    <text class="section-title">打卡记录</text>
+    <view class="record-item" wx:for="{{records}}" wx:key="index">
+      <text class="record-time">{{item}}</text>
+    </view>
+  </view>
+</view>

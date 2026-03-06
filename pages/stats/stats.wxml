@@ -1,0 +1,42 @@
+<view class="container">
+  <!-- 周/月切换 -->
+  <view class="tab-bar">
+    <view class="tab-item {{mode === 'week' ? 'active' : ''}}" bindtap="switchMode" data-mode="week">周统计</view>
+    <view class="tab-item {{mode === 'month' ? 'active' : ''}}" bindtap="switchMode" data-mode="month">月统计</view>
+  </view>
+
+  <!-- 周期切换 -->
+  <view class="period-nav">
+    <view class="nav-arrow" bindtap="onPrev">◀</view>
+    <text class="period-title">{{periodTitle}}</text>
+    <view class="nav-arrow {{isLatest ? 'disabled' : ''}}" bindtap="onNext">▶</view>
+  </view>
+
+  <!-- 汇总卡片 -->
+  <view class="summary-card">
+    <view class="summary-item">
+      <text class="summary-num">{{totalDays}}</text>
+      <text class="summary-label">打卡天数</text>
+    </view>
+    <view class="summary-item">
+      <text class="summary-num">{{totalDuration}}</text>
+      <text class="summary-label">总时长</text>
+    </view>
+    <view class="summary-item">
+      <text class="summary-num">{{avgDuration}}</text>
+      <text class="summary-label">日均时长</text>
+    </view>
+  </view>
+
+  <!-- 每日明细 -->
+  <view class="detail-section">
+    <text class="section-title">每日明细</text>
+    <view class="detail-list">
+      <view class="detail-item" wx:for="{{dayList}}" wx:key="date">
+        <text class="detail-date">{{item.date}}</text>
+        <text class="detail-weekday">{{item.weekday}}</text>
+        <text class="detail-duration {{item.duration === '--' ? 'empty' : ''}}">{{item.duration}}</text>
+      </view>
+    </view>
+  </view>
+</view>
