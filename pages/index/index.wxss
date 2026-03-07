@@ -76,6 +76,15 @@
   line-height: 300rpx;
 }
 
+.manual-btn {
+  width: 200rpx;
+  height: 200rpx;
+  font-size: 36rpx;
+  line-height: 200rpx;
+  background: linear-gradient(135deg, #F5A623, #E8913A);
+  box-shadow: 0 8rpx 30rpx rgba(245, 166, 35, 0.4);
+}
+
 .clock-btn::after {
   border: none;
 }
@@ -166,4 +175,13 @@
 .record-time {
   font-size: 28rpx;
   color: #666;
+}
+
+/* 清除按钮 */
+.clear-btn {
+  text-align: center;
+  font-size: 26rpx;
+  color: #e64340;
+  margin-top: 30rpx;
+  padding: 16rpx 0;
 }

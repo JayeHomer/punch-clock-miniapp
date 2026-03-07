@@ -2,17 +2,25 @@
   <!-- 日期切换 -->
   <view class="date-section">
     <view class="date-arrow" bindtap="onPrevDay">◀</view>
-    <view class="date-center" bindtap="onPickDate">
-      <text class="date-text">{{currentDate}}</text>
-      <text class="date-hint" wx:if="{{isToday}}">今天</text>
-      <text class="date-hint" wx:elif="{{isYesterday}}">昨天</text>
-    </view>
+    <picker mode="date" value="{{currentDate}}" end="{{todayKey}}" bindchange="onPickDate">
+      <view class="date-center">
+        <text class="date-text">{{currentDate}}</text>
+        <text class="date-hint" wx:if="{{isToday}}">今天</text>
+        <text class="date-hint" wx:elif="{{isYesterday}}">昨天</text>
+      </view>
+    </picker>
     <view class="date-arrow {{isToday ? 'disabled' : ''}}" bindtap="onNextDay">▶</view>
   </view>
 
   <!-- 打卡按钮（仅今天显示） -->
   <view class="btn-section" wx:if="{{isToday}}">
     <button class="clock-btn" bindtap="onClockIn">打卡</button>
+  </view>
+  <!-- 补录按钮（历史日期显示） -->
+  <view class="btn-section" wx:elif="{{!isToday}}">
+    <picker mode="multiSelector" range="{{timePickerRange}}" bindchange="onManualRecord">
+      <button class="clock-btn manual-btn">补录</button>
+    </picker>
   </view>
 
   <!-- 统计 -->
@@ -41,8 +49,9 @@
   <!-- 打卡记录 -->
   <view class="records-section" wx:if="{{records.length > 0}}">
     <text class="section-title">打卡记录</text>
-    <view class="record-item" wx:for="{{records}}" wx:key="index">
+    <view class="record-item" wx:for="{{records}}" wx:key="index" bindlongpress="onDeleteRecord" data-index="{{index}}">
       <text class="record-time">{{item}}</text>
     </view>
+    <view class="clear-btn" bindtap="onClearDay">清除当天记录</view>
   </view>
 </view>

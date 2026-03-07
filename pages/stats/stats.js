@@ -34,12 +34,15 @@ Page({
   },
 
   onNext() {
-    if (this.data.isLatest) return
+    if (this._offset >= 0) return
     this._offset++
     this.refresh()
   },
 
   async refresh() {
+    const pending = getApp()._pendingClockIn
+    if (pending) await pending
+
     const dates = this.data.mode === 'week' ? this.getWeekDates() : this.getMonthDates()
     const isLatest = this._offset >= 0
     const startDate = dates[0]
@@ -57,7 +60,8 @@ Page({
       // date -> records 映射
       const recordMap = {}
       res.data.forEach(item => {
-        recordMap[item.date] = item.records
+        const prev = recordMap[item.date]
+        recordMap[item.date] = prev ? prev.concat(item.records) : (item.records || [])
       })
 
       const dayList = []
@@ -70,6 +74,7 @@ Page({
         const weekday = '周' + WEEKDAYS[d.getDay()]
         let duration = '--'
         if (records.length > 0) {
+          records.sort()
           const seconds = this.calcSeconds(records[0], records[records.length - 1])
           duration = this.formatDuration(seconds)
           totalSeconds += seconds
