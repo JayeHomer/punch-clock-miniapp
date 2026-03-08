@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/calendar/calendar",
     "pages/stats/stats"
   ],
   "window": {
@@ -21,6 +22,12 @@
         "text": "打卡",
         "iconPath": "images/clock.png",
         "selectedIconPath": "images/clock_active.png"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "日历",
+        "iconPath": "images/calendar.png",
+        "selectedIconPath": "images/calendar_active.png"
       },
       {
         "pagePath": "pages/stats/stats",

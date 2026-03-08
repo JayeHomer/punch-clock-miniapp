@@ -85,6 +85,22 @@
   box-shadow: 0 8rpx 30rpx rgba(245, 166, 35, 0.4);
 }
 
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.manual-link {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #F5A623;
+}
+
+.manual-link:active {
+  opacity: 0.6;
+}
+
 .clock-btn::after {
   border: none;
 }

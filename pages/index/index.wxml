@@ -12,11 +12,16 @@
     <view class="date-arrow {{isToday ? 'disabled' : ''}}" bindtap="onNextDay">▶</view>
   </view>
 
-  <!-- 打卡按钮（仅今天显示） -->
+  <!-- 打卡按钮 + 补录（今天） -->
   <view class="btn-section" wx:if="{{isToday}}">
-    <button class="clock-btn" bindtap="onClockIn">打卡</button>
+    <view class="btn-group">
+      <button class="clock-btn" bindtap="onClockIn">打卡</button>
+      <picker mode="multiSelector" range="{{timePickerRange}}" bindchange="onManualRecord">
+        <view class="manual-link">补录</view>
+      </picker>
+    </view>
   </view>
-  <!-- 补录按钮（历史日期显示） -->
+  <!-- 补录按钮（历史日期） -->
   <view class="btn-section" wx:elif="{{!isToday}}">
     <picker mode="multiSelector" range="{{timePickerRange}}" bindchange="onManualRecord">
       <button class="clock-btn manual-btn">补录</button>

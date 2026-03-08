@@ -1,0 +1,48 @@
+<view class="container">
+  <!-- 月份导航 -->
+  <view class="month-nav">
+    <view class="nav-arrow" bindtap="onPrevMonth">◀</view>
+    <text class="month-title">{{monthTitle}}</text>
+    <view class="nav-arrow {{isCurrentMonth ? 'disabled' : ''}}" bindtap="onNextMonth">▶</view>
+  </view>
+
+  <!-- 汇总卡片 -->
+  <view class="summary-card">
+    <view class="summary-item">
+      <text class="summary-num">{{workDays}}</text>
+      <text class="summary-label">出勤</text>
+    </view>
+    <view class="summary-item">
+      <text class="summary-num overtime">{{overtimeDays}}</text>
+      <text class="summary-label">加班</text>
+    </view>
+    <view class="summary-item">
+      <text class="summary-num leave">{{leaveDays}}</text>
+      <text class="summary-label">请假</text>
+    </view>
+    <view class="summary-item">
+      <text class="summary-num absent">{{absentDays}}</text>
+      <text class="summary-label">缺勤</text>
+    </view>
+  </view>
+
+  <!-- 日历网格 -->
+  <view class="calendar">
+    <view class="weekday-row">
+      <view class="weekday-cell" wx:for="{{weekDays}}" wx:key="*this">{{item}}</view>
+    </view>
+    <view class="day-grid">
+      <view
+        class="day-cell {{item.inMonth ? '' : 'other-month'}} {{item.isToday ? 'today' : ''}}"
+        wx:for="{{calendarDays}}"
+        wx:key="dateKey"
+        data-datekey="{{item.dateKey}}"
+        bindtap="onDayTap"
+        bindlongpress="onDayLongpress"
+      >
+        <text class="day-num">{{item.day}}</text>
+        <text class="day-indicator {{item.indicatorClass}}" wx:if="{{item.indicator}}">{{item.indicator}}</text>
+      </view>
+    </view>
+  </view>
+</view>

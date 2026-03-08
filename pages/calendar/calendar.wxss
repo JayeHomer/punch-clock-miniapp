@@ -5,33 +5,8 @@
   background: #f5f5f5;
 }
 
-/* 周/月切换 */
-.tab-bar {
-  display: flex;
-  background: #fff;
-  border-radius: 16rpx;
-  overflow: hidden;
-  margin-bottom: 30rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
-}
-
-.tab-item {
-  flex: 1;
-  text-align: center;
-  padding: 24rpx 0;
-  font-size: 30rpx;
-  color: #666;
-  transition: all 0.2s;
-}
-
-.tab-item.active {
-  background: #4A90D9;
-  color: #fff;
-  font-weight: bold;
-}
-
-/* 周期导航 */
-.period-nav {
+/* 月份导航 */
+.month-nav {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,7 +31,7 @@
   background: #f5f5f5;
 }
 
-.period-title {
+.month-title {
   margin: 0 30rpx;
   font-size: 32rpx;
   color: #333;
@@ -68,7 +43,7 @@
   display: flex;
   background: #fff;
   border-radius: 20rpx;
-  padding: 40rpx 20rpx;
+  padding: 30rpx 20rpx;
   margin-bottom: 30rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
 }
@@ -81,11 +56,22 @@
 }
 
 .summary-num {
-  font-size: 28rpx;
+  font-size: 36rpx;
   color: #4A90D9;
   font-weight: bold;
   margin-bottom: 10rpx;
-  white-space: nowrap;
+}
+
+.summary-num.overtime {
+  color: #F5A623;
+}
+
+.summary-num.leave {
+  color: #9B59B6;
+}
+
+.summary-num.absent {
+  color: #e64340;
 }
 
 .summary-label {
@@ -93,51 +79,87 @@
   color: #999;
 }
 
-/* 每日明细 */
-.detail-section {
+/* 日历网格 */
+.calendar {
   background: #fff;
   border-radius: 20rpx;
-  padding: 30rpx;
+  padding: 20rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
 }
 
-.section-title {
-  font-size: 30rpx;
-  color: #333;
-  font-weight: bold;
-  margin-bottom: 20rpx;
-  display: block;
-}
-
-.detail-item {
+.weekday-row {
   display: flex;
-  align-items: center;
-  padding: 20rpx 10rpx;
-  border-bottom: 1rpx solid #f5f5f5;
 }
 
-.detail-item:last-child {
-  border-bottom: none;
-}
-
-.detail-date {
-  font-size: 28rpx;
-  color: #333;
-  width: 200rpx;
-}
-
-.detail-weekday {
+.weekday-cell {
+  flex: 1;
+  text-align: center;
   font-size: 26rpx;
   color: #999;
-  flex: 1;
+  padding: 16rpx 0;
 }
 
-.detail-duration {
+.day-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day-cell {
+  width: calc(100% / 7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rpx 0;
+  min-height: 100rpx;
+  box-sizing: border-box;
+}
+
+.day-cell.other-month {
+  opacity: 0.3;
+}
+
+.day-cell.today .day-num {
+  background: #4A90D9;
+  color: #fff;
+}
+
+.day-num {
   font-size: 28rpx;
-  color: #4A90D9;
-  font-weight: 500;
+  color: #333;
+  width: 56rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border-radius: 50%;
 }
 
-.detail-duration.empty {
-  color: #ccc;
+.day-indicator {
+  font-size: 18rpx;
+  margin-top: 2rpx;
+  line-height: 1;
+}
+
+.day-indicator.holiday {
+  color: #27AE60;
+}
+
+.day-indicator.rest {
+  color: #bbb;
+}
+
+.day-indicator.checked {
+  color: #4A90D9;
+  font-size: 16rpx;
+}
+
+.day-indicator.overtime {
+  color: #F5A623;
+}
+
+.day-indicator.leave {
+  color: #9B59B6;
+}
+
+.day-indicator.absent {
+  color: #e64340;
 }

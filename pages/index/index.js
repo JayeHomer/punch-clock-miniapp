@@ -26,6 +26,12 @@ Page({
   },
 
   onShow() {
+    const navDate = getApp()._navigateToDate
+    if (navDate) {
+      const [y, m, d] = navDate.split('-').map(Number)
+      this._viewDate = new Date(y, m - 1, d)
+      getApp()._navigateToDate = null
+    }
     this.loadDate()
   },
 
@@ -125,7 +131,7 @@ Page({
     const now = this.formatTime(new Date())
 
     // Optimistic UI: update display immediately
-    const newRecords = this.data.records.concat(now)
+    const newRecords = this.data.records.concat(now).sort()
     this.setData({ records: newRecords })
     this.updateStats(newRecords)
     wx.showToast({ title: '打卡成功', icon: 'success' })
